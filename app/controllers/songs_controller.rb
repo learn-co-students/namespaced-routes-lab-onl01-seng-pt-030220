@@ -25,8 +25,8 @@ class SongsController < ApplicationController
   end
 
   def new
-  # @preference = Preference.new
-    if Preference.new.allow_create_songs == true
+  @preference = Preference.first
+    if @preference.allow_create_song
       @song = Song.new
     else
       redirect_to songs_path
